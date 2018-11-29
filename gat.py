@@ -25,7 +25,7 @@ GWAS_tags = {
 
 # update GWAS_causes' keys by REGEX template to look for a particular word or phrase in a string
 for GWAS_keys, GWAS_values in GWAS_tags.items():
-    new_GWAS_values_list = []
+    new_GWAS_values_list = list()
     for GWAS_value in GWAS_values:
         new_GWAS_values_list.append(r'(?:^|\W)(' + GWAS_value.lower() + r')(?:$|\W)')
     GWAS_tags[GWAS_keys] = new_GWAS_values_list
