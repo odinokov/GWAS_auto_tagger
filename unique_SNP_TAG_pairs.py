@@ -22,3 +22,35 @@ for df_index in tqdm(df_TGAG_RS_IDs.index):
 df_new = df_new.drop_duplicates()
 
 df_new.to_csv('RS_IDs_and_tags_only.csv', index=False)
+
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+plt.rcParams.update({'font.family': 'serif'})
+plt.rcParams.update({'font.size': 11})
+
+df_new = pd.read_csv('RS_IDs_and_tags_only.csv', low_memory=False)
+
+labels = df_new['TAG'].unique().tolist()
+
+sizes = list()
+
+for label in labels:
+    sizes.append(df_new[df_new['TAG'] == label]['RS_IDs'].count())
+
+fig1, ax1 = plt.subplots()
+
+ax1.pie(sizes, explode=None, labels=labels, autopct='%1.f%%',
+        pctdistance=0.8, labeldistance=1.1, radius = 1,
+        shadow=False, startangle=30)
+
+ax1.axis('equal') 
+
+ax1.set_title('The distribution of 14K unique SNP/traits \n\
+associated with the top causes of death\n', fontsize=16)
+
+plt.savefig('test.png', dpi = (200), bbox_inches = 'tight')
+
+plt.show()
+'''
