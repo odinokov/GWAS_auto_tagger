@@ -60,7 +60,7 @@ for df_index in tqdm(df.index):
     
     RS_IDs = re.findall(RS_IDs_REGEX, df.loc[df_index, 'RS_IDs'])
     
-    if bool(not RS_IDs):
+    if not bool(RS_IDs):
         RS_IDs = [None]
         
     for RS_ID in RS_IDs:
