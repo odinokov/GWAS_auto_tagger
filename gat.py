@@ -1,6 +1,6 @@
 '''
 To tag GWAS studies from http://ftp.ebi.ac.uk/pub/databases/gwas/
-according to  synonyms of the ranked top leading causes of death
+according to synonyms of the ranked top leading causes of death
 '''
 
 import pandas as pd
