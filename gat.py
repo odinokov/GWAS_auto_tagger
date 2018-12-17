@@ -13,9 +13,9 @@ df = df.copy()
 
 GWAS_tags = {
     'Diseases of heart' : ['heart', 'coronary', 'cardiovascular', 'atherosclerosis'],
-    'Malignant neoplasms' : ['malignant', 'neoplasms', 'cancer'],
-    'Alzheimer\'s disease' : ['Alzheimer', 'AD'],
-    'Cerebrovascular diseases' : ['cerebrovascular', 'stroke', 'ischemic attack', 'aneurysms'],
+    'Malignant neoplasms' : ['malignant', 'neoplasms', 'cancer', 'glioma', 'glioblastoma', 'lymphoma', 'leukemia', 'sarcoma', 'melanoma', 'histiocytoma', 'osteosarcoma'],
+    'Alzheimer\'s disease' : ['Alzheimer', 'AD', 'Alzheimer\s'],
+    'Cerebrovascular diseases' : ['cerebrovascular', 'stroke', 'ischemic attack', 'aneurysms', 'aneurysm'],
     'Chronic lower respiratory diseases' : ['COPD', 'chronic obstructive pulmonary', 'lung function'],
     'Influenza and pneumonia' : ['pneumonia', 'pneumonitis', 'influenza'],
     'Nephritis, nephrotic syndrome and nephrosis' : ['nephritis', 'nephrotic', 'nephrosis', 'kidney disease', 'kidney function', 'renal function'],
