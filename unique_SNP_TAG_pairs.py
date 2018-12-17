@@ -24,7 +24,7 @@ df_TAG_RS_IDs_Gene.sample(10)
 df_ = df_TAG_RS_IDs_Gene.copy()
 
 for df_index in tqdm(df_.index):
-    genes_list = str(df_.loc[df_index, 'Gene']).replace(' - ', ', ').replace('; ', ', ').split(', ')
+    genes_list = list(set(str(df_.loc[df_index, 'Gene']).replace(' - ', ', ').replace('; ', ', ').split(', ')))
     for gene in genes_list:
         df_['Gene'].loc[[df_index,]] = gene
         df_gene = df_gene.append(df_.loc[[df_index,]], ignore_index=True, sort=False)
