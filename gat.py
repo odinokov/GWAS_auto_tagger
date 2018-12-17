@@ -27,11 +27,13 @@ GWAS_tags = {
 for GWAS_keys, GWAS_values in GWAS_tags.items():
     new_GWAS_values_list = list()
     for GWAS_value in GWAS_values:
-        new_GWAS_values_list.append(r'(?:^|\W)(' + GWAS_value.lower() + r')(?:$|\W)')
+        # new_GWAS_values_list.append(r'(?:^|\W)(' + GWAS_value.lower() + r')(?:$|\W)')
+        new_GWAS_values_list.append(r'(?:^|\W)({0})(?:$|\W)'.format(GWAS_value.lower()))
     GWAS_tags[GWAS_keys] = new_GWAS_values_list
     
 # group all strings with trait for synonyms look up
-df['TAG'] = df['STUDY'] + ' ' + df['DISEASE/TRAIT'] + ' ' + df['MAPPED_TRAIT']
+# df['TAG'] = df['STUDY'] + ' ' + df['DISEASE/TRAIT'] + ' ' + df['MAPPED_TRAIT']
+df['TAG'] = r'{0} {1} {2}'.format(df['STUDY'], df['DISEASE/TRAIT'], df['MAPPED_TRAIT'])
 
 df['RS_IDs'] = df['SNPS']
 
