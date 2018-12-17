@@ -50,10 +50,18 @@ df_['TAG'].value_counts()
 
 df_.to_csv('Tags_RS_IDs_and_genes.csv', index=False)
 
+# plot a pie
+
 import matplotlib.pyplot as plt
 
 plt.rcParams.update({'font.family': 'serif'})
 plt.rcParams.update({'font.size': 11})
+
+# Sorting Pandas dataframe by frequency of TAG occurrence
+
+df_dummy = df_.copy()
+df_dummy['count'] = df_dummy.groupby('TAG')['TAG'].transform('count')
+df_ = df_dummy.sort_values(by=['count']).reset_index(drop=True).drop(['count'], axis=1)
 
 labels = df_['TAG'].unique().tolist()
 
