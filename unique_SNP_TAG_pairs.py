@@ -5,11 +5,11 @@ get a list of unique SNP/TAG/Gene
 import pandas as pd
 from tqdm import tqdm
 
-df = pd.read_csv('GWAS_RS_IDs_tagged_clean_with_genes_Dec_07_2018.csv', low_memory=False)
+df = pd.read_csv('gwas_RS_IDs_tagged.csv', low_memory=False)
 
 df_TAG_RS_IDs_Gene = pd.DataFrame()
 
-df_TAG_RS_IDs_Gene['TAG'], df_TAG_RS_IDs_Gene['RS_IDs'], df_TAG_RS_IDs_Gene['Gene'] = df['TAG'], df['RS_IDs'], df['Gene']
+df_TAG_RS_IDs_Gene['TAG'], df_TAG_RS_IDs_Gene['RS_IDs'], df_TAG_RS_IDs_Gene['Gene'] = df['TAG'], df['RS_IDs'], df['MAPPED_GENE']
 
 df_TAG_RS_IDs_Gene = df_TAG_RS_IDs_Gene.dropna(subset=['TAG']).reset_index(drop=True)
 
@@ -24,12 +24,9 @@ df_TAG_RS_IDs_Gene.sample(10)
 df_ = df_TAG_RS_IDs_Gene.copy()
 
 for df_index in tqdm(df_.index):
-    genes_list = str(df_.loc[df_index, 'Gene']).split(',')
+    genes_list = str(df_.loc[df_index, 'Gene']).replace(' - ', ', ').replace('; ', ', ').split(', ')
     for gene in genes_list:
-        if gene == '-':
-            df_['Gene'].loc[[df_index,]] = ''
-        else:
-            df_['Gene'].loc[[df_index,]] = gene
+        df_['Gene'].loc[[df_index,]] = gene
         df_gene = df_gene.append(df_.loc[[df_index,]], ignore_index=True, sort=False)
         
 print('Total number of unique genes:', len(df_gene['Gene'].value_counts()))
