@@ -16,7 +16,7 @@ GWAS_tags = {
     'Malignant neoplasms' : ['malignant', 'neoplasms', 'cancer', 'glioma', 'glioblastoma', 'lymphoma', 'leukemia', 'sarcoma', 'melanoma', 'histiocytoma', 'osteosarcoma'],
     'Alzheimer\'s disease' : ['Alzheimer', 'AD', 'Alzheimer\s'],
     'Cerebrovascular diseases' : ['cerebrovascular', 'stroke', 'ischemic attack', 'aneurysms', 'aneurysm'],
-    'Chronic lower respiratory diseases' : ['COPD', 'chronic obstructive pulmonary', 'lung function'],
+    'Chronic lower respiratory diseases' : ['COPD', 'chronic obstructive pulmonary', 'lung function', 'chronic lower respiratory'],
     'Influenza and pneumonia' : ['pneumonia', 'pneumonitis', 'influenza'],
     'Nephritis, nephrotic syndrome and nephrosis' : ['nephritis', 'nephrotic', 'nephrosis', 'kidney disease', 'kidney function', 'renal function'],
     'Diabetes mellitus' : ['diabetes', 'insulin'],
